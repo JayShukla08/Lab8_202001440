@@ -1,10 +1,10 @@
-Lab 8 : Unit Testing with JUnit
+# Lab 8 : Unit Testing with JUnit
 
-Student Name : Jay Shukla
+## Student Name : Jay Shukla
 
-Student ID: 202001440
+## Student ID: 202001440
 
-1. Create a JAVA project in Eclipse named "Lab8" and create a package inside it with name "mypackage"
+1. Create a JAVA project in Eclipse named "Lab8" and create a package inside it with name **"mypackage"**
 
 ![image](https://user-images.githubusercontent.com/123619898/233591384-5536c65c-1588-476e-9887-8c3d0a9047c4.png)
 
@@ -13,8 +13,8 @@ Student ID: 202001440
 ![image](https://user-images.githubusercontent.com/123619898/233591563-1158775a-7b0e-4f33-bb20-baf58873548c.png)
 
 
-3.Then create a JUnit test file for the Boa Class with name "BoaTest"
-
+3.Then create a JUnit test file for the Boa Class with name **"BoaTest"**
+```
 import org.junit.Assert;
 import org.junit.Test;
 public class BoaTest {
@@ -22,7 +22,6 @@ public class BoaTest {
   public void testIsHealthy() {
     Boa healthyBoa = new Boa("Lucy", 8, "granola bars");
     Assert.assertTrue(healthyBoa.isHealthy());
-    
     Boa sickBoa = new Boa("Sneaky", 6, "mice");
     Assert.assertFalse(sickBoa.isHealthy());
   }
@@ -36,12 +35,12 @@ public class BoaTest {
     Assert.assertFalse(largeBoa.fitsInCage(10));
   }
 }
-
+```
 ![image](https://user-images.githubusercontent.com/123619898/233591778-ada1dfc3-4e78-422f-a855-3f490f128e2c.png)
 
 
 4.Then modify the setUp method to initialize the variables.
-
+```
 public class BoaTest {
     private Boa jen;
     private Boa ken;
@@ -54,6 +53,7 @@ public class BoaTest {
     
     // write test methods here
 }
+```
 5.Then implement tests for the given two functions testIsHealthy() and testFitsInCage(). ![image](https://user-images.githubusercontent.com/123619898/233591871-9349ab7a-0446-4c8b-a5ea-66583017e868.png)
 
 For testing the fitsInCage() function, there is no need to write tests for both jen and ken objects as the function is same for both and the output of test cases depends only whether the given lenght is greater than,less than or equal to actual length of object.The behaviour will be similar in both cases.
@@ -63,7 +63,7 @@ For testing the fitsInCage() function, there is no need to write tests for both 
 It can be seen that 2 out of 2 test cases have been passed.
 
 7.Then add a new method to the Boa class with name lenghtInInches() to get the length in inches.
-
+```
 public class Boa {
     private String name;
     private int length; // the length of the boa, in feet
@@ -87,6 +87,7 @@ public class Boa {
         return this.length * 12;
     }
 }
+```
 ![image](https://user-images.githubusercontent.com/123619898/233592021-d1982768-49b2-41a2-9ac3-c0ec5d9eea1d.png)
 
 As the length of the Boa is given in feet, to convert it into inches, multiply length with 12 and return the value.
@@ -96,6 +97,7 @@ As the length of the Boa is given in feet, to convert it into inches, multiply l
 Thus, test cases have been written for the given Boa class and all the three methods have been tested with required Junit test cases.
 
 Here's an example of a new test case in the BoaTest class that tests the lengthInInches() method:
+```
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -113,4 +115,5 @@ public class BoaTest {
         assertEquals(36, ken.lengthInInches());
     }
 }
+```
 This new test case checks that the lengthInInches() method returns the expected value when called on each of the Boa objects created in the setUp() method. It uses the assertEquals() method to compare the expected value to the actual value returned by the lengthInInches() method. The @Test annotation indicates that this is a test method that should be run by JUnit.
